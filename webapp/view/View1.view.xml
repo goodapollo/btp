@@ -1,0 +1,11 @@
+<mvc:View controllerName="zsapui5test.controller.View1" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+    <content>
+        <List noDataText="Drop list items here" id="list0" items="{/BusinessPartner}">
+            <items>
+                <StandardListItem type="Navigation" icon="sap-icon://picture" id="item0" title="{BusinessPartner}" description="{FullName}"/>
+            </items>
+        </List>
+    </content>
+    </Page>
+</mvc:View>

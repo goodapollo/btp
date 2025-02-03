@@ -1,0 +1,1221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.z_businesspartner.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="I_BusPartCategoryType">
+                <Key>
+                    <PropertyRef Name="BusinessPartnerCategory"/>
+                </Key>
+                <Property Name="BusinessPartnerCategory" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="BusinessPartnerCategory_Text" Type="Edm.String" Nullable="false" MaxLength="60"/>
+            </EntityType>
+            <EntityType Name="C_BusPartCategoryVHType">
+                <Key>
+                    <PropertyRef Name="BusinessPartnerCategory"/>
+                </Key>
+                <Property Name="BusinessPartnerCategory" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="BusinessPartnerCategory_Text" Type="Edm.String" Nullable="false" MaxLength="60"/>
+            </EntityType>
+            <EntityType Name="BusinessPartnerType">
+                <Key>
+                    <PropertyRef Name="BusinessPartner"/>
+                </Key>
+                <Property Name="BusinessPartner" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="BusinessPartnerUUID" Type="Edm.Guid"/>
+                <Property Name="FullName" Type="Edm.String" Nullable="false" MaxLength="163"/>
+                <Property Name="BusinessPartnerForEdit" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="BusinessPartnerGrouping" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="BusinessPartnerCategory" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="CreatedByUser" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="CreationDate" Type="Edm.Date"/>
+                <Property Name="CreationTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="LastChangeDate" Type="Edm.Date"/>
+                <Property Name="LastChangeTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="FormOfAddress" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="FormOfAddressPerson" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="AdditionalLastName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="BusinessPartnerBirthName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="MiddleName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="AcademicTitle" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="AcademicTitle2" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="BusinessPartnerSupplementName" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="LastNamePrefix" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="LastNameSecondPrefix" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="PersonFullName" Type="Edm.String" Nullable="false" MaxLength="80"/>
+                <Property Name="BusinessPartnerNicknameLabel" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Initials" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="IsNaturalPerson" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="CorrespondenceLanguage" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="BirthDate" Type="Edm.Date"/>
+                <Property Name="BusinessPartnerBirthplaceName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="BusinessPartnerBirthDateStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="BusinessPartnerDeathDate" Type="Edm.Date"/>
+                <Property Name="BusinessPartnerOccupation" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="BusPartNationality" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="BusPartMaritalStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="IsMale" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="IsFemale" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="IsSexUnknown" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="GenderCodeName" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="AdditionalName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="BusinessPartnerIDByExtSystem" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="NonResidentCompanyOriginCntry" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="NaturalPersonEmployerName" Type="Edm.String" Nullable="false" MaxLength="35"/>
+                <Property Name="BusinessPartnerSalutation" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="FormOfAddressOrganization" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="OrganizationBPName1" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="OrganizationBPName2" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="OrganizationBPName3" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="OrganizationBPName4" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="LegalForm" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="LegalEntityOfOrganization" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="OrganizationFoundationDate" Type="Edm.Date"/>
+                <Property Name="OrganizationLiquidationDate" Type="Edm.Date"/>
+                <Property Name="InternationalLocationNumber1" Type="Edm.String" Nullable="false" MaxLength="7"/>
+                <Property Name="InternationalLocationNumber2" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="InternationalLocationNumber3" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="ETag" Type="Edm.String" Nullable="false" MaxLength="26"/>
+                <Property Name="FormOfAddressGroup" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="GroupBusinessPartnerName1" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="GroupBusinessPartnerName2" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="BusinessPartnerGroupType" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="AuthorizationGroup" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="BusinessPartnerKind" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="BusinessPartnerPrintFormat" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="BusinessPartnerDataOriginType" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="BusinessPartnerIsBlocked" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="IsMarkedForArchiving" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="BusinessPartnerIsNotReleased" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="ContactPermission" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="IsBusinessPurposeCompleted" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="SearchTerm1" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="SearchTerm2" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="BPFirstNameSearchHelp" Type="Edm.String" Nullable="false" MaxLength="35"/>
+                <Property Name="BPLastNameSearchHelp" Type="Edm.String" Nullable="false" MaxLength="35"/>
+                <Property Name="NameFormat" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="NameCountry" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="BusPartPersonDataIsHidden" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="BusPartOrgDataIsHidden" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="BusPartGroupDataIsHidden" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="BusPartAddrLanguageIsHidden" Type="Edm.Boolean" Nullable="false"/>
+                <NavigationProperty Name="_BusinessPartnerAddress" Type="Collection(com.sap.gateway.srvd.z_businesspartner.v0001.BusinessPartnerAddressType)" Partner="_BusinessPartner">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="_BusinessPartnerCategory" Type="com.sap.gateway.srvd.z_businesspartner.v0001.I_BusPartCategoryType"/>
+            </EntityType>
+            <EntityType Name="BusinessPartnerAddressType">
+                <Key>
+                    <PropertyRef Name="BusinessPartner"/>
+                    <PropertyRef Name="AddressNumber"/>
+                </Key>
+                <Property Name="BusinessPartner" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="AddressNumber" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="AddressIDForEdit" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="BusinessPartnerAddressUUID" Type="Edm.Guid"/>
+                <Property Name="ValidityStartDate" Type="Edm.Date"/>
+                <Property Name="ValidityEndDate" Type="Edm.Date"/>
+                <Property Name="CareOfName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="StreetPrefixName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="AdditionalStreetPrefixName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="HouseNumber" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="StreetName" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="HouseNumberSupplementText" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="StreetSuffixName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="AdditionalStreetSuffixName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="HomeCityName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="District" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="DistrictName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="PostalCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="CityName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="Region" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="AddressTimeZone" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="TransportZone" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="TaxJurisdiction" Type="Edm.String" Nullable="false" MaxLength="15"/>
+                <Property Name="CompanyPostalCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="DeliveryServiceTypeCode" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DeliveryServiceNumber" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="POBox" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="POBoxIsWithoutNumber" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="POBoxPostalCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="POBoxLobbyName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="POBoxDeviatingCityName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="POBoxDeviatingRegion" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="POBoxDeviatingCountry" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="CorrespondenceLanguage" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="PrfrdCommMediumType" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="AddressLine1Text" Type="Edm.String" Nullable="false" MaxLength="127"/>
+                <Property Name="FormattedAddress" Type="Edm.String" Nullable="false" MaxLength="124"/>
+                <Property Name="CompleteAddress" Type="Edm.String" Nullable="false" MaxLength="177"/>
+                <Property Name="BPAddressIsProtected" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="StandardUsage" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="AddressNonDeliverableReason" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="PostBoxNonDeliverableReason" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Building" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="Floor" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="RoomNumber" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="County" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="BPCountyText" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <NavigationProperty Name="_BusinessPartner" Type="com.sap.gateway.srvd.z_businesspartner.v0001.BusinessPartnerType" Nullable="false" Partner="_BusinessPartnerAddress">
+                    <ReferentialConstraint Property="BusinessPartner" ReferencedProperty="BusinessPartner"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityContainer Name="Container">
+                <EntitySet Name="BusinessPartner" EntityType="com.sap.gateway.srvd.z_businesspartner.v0001.BusinessPartnerType">
+                    <NavigationPropertyBinding Path="_BusinessPartnerAddress" Target="BusinessPartnerAddress"/>
+                    <NavigationPropertyBinding Path="_BusinessPartnerCategory" Target="I_BusPartCategory"/>
+                </EntitySet>
+                <EntitySet Name="BusinessPartnerAddress" EntityType="com.sap.gateway.srvd.z_businesspartner.v0001.BusinessPartnerAddressType">
+                    <NavigationPropertyBinding Path="_BusinessPartner" Target="BusinessPartner"/>
+                </EntitySet>
+                <EntitySet Name="C_BusPartCategoryVH" EntityType="com.sap.gateway.srvd.z_businesspartner.v0001.C_BusPartCategoryVHType"/>
+                <EntitySet Name="I_BusPartCategory" EntityType="com.sap.gateway.srvd.z_businesspartner.v0001.I_BusPartCategoryType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.I_BusPartCategoryType/BusinessPartnerCategory">
+                <Annotation Term="SAP__common.Label" String="Category"/>
+                <Annotation Term="SAP__common.Text" Path="BusinessPartnerCategory_Text"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Heading" String="BPC"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Partner Category"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_BusPartCategoryType/BusinessPartnerCategory_Text">
+                <Annotation Term="SAP__common.Label" String="Business Partner Category Description"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Heading" String="Short Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Short Text for Fixed Values"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_BusPartCategoryType">
+                <Annotation Term="SAP__common.Label" String="Business Partner Category"/>
+                <Annotation Term="SAP__common.SAPObjectNodeType">
+                    <Record>
+                        <PropertyValue Property="Name" String="BusinessPartnerCategory"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/I_BusPartCategory">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/OR SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group SAP__capabilities.SearchExpressions/phrase"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.C_BusPartCategoryVHType/BusinessPartnerCategory">
+                <Annotation Term="SAP__common.Label" String="Category"/>
+                <Annotation Term="SAP__common.Text" Path="BusinessPartnerCategory_Text"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Heading" String="BPC"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Partner Category"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_BusPartCategoryVHType/BusinessPartnerCategory_Text">
+                <Annotation Term="SAP__common.Label" String="Business Partner Category Description"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Heading" String="Short Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Short Text for Fixed Values"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_BusPartCategoryVHType">
+                <Annotation Term="SAP__common.Label" String="Value Help: Business Partner Category"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/C_BusPartCategoryVH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartner">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Business Partner"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Partner Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/FullName">
+                <Annotation Term="SAP__common.Label" String="Full Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartnerForEdit">
+                <Annotation Term="SAP__common.Text" Path="FullName"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Business Partner"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Partner Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartnerGrouping">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Grouping"/>
+                <Annotation Term="SAP__common.Heading" String="Grp."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Partner Grouping"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartnerCategory">
+                <Annotation Term="SAP__common.Text" Path="_BusinessPartnerCategory/BusinessPartnerCategory_Text"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/c_buspartcategoryvh/0001;ps='srvd-z_businesspartner-0001';va='com.sap.gateway.srvd.z_businesspartner.v0001.et-zc_businesspartner.businesspartnercategory'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="BP Category"/>
+                <Annotation Term="SAP__common.Heading" String="BPC"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Partner Category"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/CreatedByUser">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Created by"/>
+                <Annotation Term="SAP__common.Heading" String="User"/>
+                <Annotation Term="SAP__common.QuickInfo" String="User who created the object"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/LastChangedByUser">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Changed by"/>
+                <Annotation Term="SAP__common.Heading" String="User"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Last user to change object"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/FormOfAddress">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Title Key"/>
+                <Annotation Term="SAP__common.Heading" String="Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Form-of-Address Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/FormOfAddressPerson">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Title Key"/>
+                <Annotation Term="SAP__common.Heading" String="Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Form-of-Address Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/AcademicTitle">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Academic Title 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Academic Title: Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/AcademicTitle2">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="2nd academic title"/>
+                <Annotation Term="SAP__common.Heading" String="2nd key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Second academic title (key)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartnerSupplementName">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Name Supplement"/>
+                <Annotation Term="SAP__common.Heading" String="Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Name supplement, e.g. noble title (key)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/LastNamePrefix">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Prefix Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Name Prefix (Key)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/LastNameSecondPrefix">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="2nd prefix"/>
+                <Annotation Term="SAP__common.Heading" String="2nd key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="2nd name prefix (key)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/Initials">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Initials"/>
+                <Annotation Term="SAP__common.QuickInfo" String="&quot;Middle Initial&quot; or personal initials"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartnerBirthDateStatus">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Birth Date Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Date of Birth: Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartnerOccupation">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Occupation"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Occupation/group"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusPartNationality">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Nationality"/>
+                <Annotation Term="SAP__common.Heading" String="Nat"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusPartMaritalStatus">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Marital Status"/>
+                <Annotation Term="SAP__common.Heading" String="Marital Stat."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Marital Status of Business Partner"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/GenderCodeName">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Sex"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Sex of business partner (person)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/AdditionalName">
+                <Annotation Term="SAP__common.Label" String="Additional Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartnerIDByExtSystem">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="External BP Number"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Partner Number in External System"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/NonResidentCompanyOriginCntry">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Ctry/Reg. of Origin"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Country/Region of Origin: Non-Resident Companies"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/FormOfAddressOrganization">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Title Key"/>
+                <Annotation Term="SAP__common.Heading" String="Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Form-of-Address Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/LegalForm">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Legal form"/>
+                <Annotation Term="SAP__common.QuickInfo" String="BP: Legal form of organization"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/LegalEntityOfOrganization">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Legal entity"/>
+                <Annotation Term="SAP__common.Heading" String="LegEnty"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Legal Entity of Organization"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/InternationalLocationNumber1">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Int.location 1"/>
+                <Annotation Term="SAP__common.Heading" String="ILN 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business partner: International location number part 1 (DI)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/InternationalLocationNumber2">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Int. location 2"/>
+                <Annotation Term="SAP__common.Heading" String="ILN21"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business partner: International location number part 2 (DI)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/InternationalLocationNumber3">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Check digit"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business partner: International location number part 3 (DI)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/ETag">
+                <Annotation Term="SAP__common.Label" String="Etag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/FormOfAddressGroup">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Title Key"/>
+                <Annotation Term="SAP__common.Heading" String="Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Form-of-Address Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartnerGroupType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Partner group type"/>
+                <Annotation Term="SAP__common.Heading" String="GTyp"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Group type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/AuthorizationGroup">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Authorization Group"/>
+                <Annotation Term="SAP__common.Heading" String="AGrp"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartnerKind">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="BP Type"/>
+                <Annotation Term="SAP__common.Heading" String="Type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Partner Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartnerPrintFormat">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Print Format"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Partner Print Format"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartnerDataOriginType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Data Origin"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Data Origin Types"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/ContactPermission">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Contact"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Partner: Contact Permission"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/SearchTerm1">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Search Term 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Search Term 1 for Business Partner"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/SearchTerm2">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Search Term 2"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Search Term 2 for Business Partner"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BPFirstNameSearchHelp">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Name 2/First Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Search Help Field 2 (Name 2/First Name)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BPLastNameSearchHelp">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Name 1/Last Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Search Help Field 1 (Name 1/Last Name)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/NameFormat">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Name Format"/>
+                <Annotation Term="SAP__common.Heading" String="Format"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Name format"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/NameCountry">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Ctry/Reg. for Format"/>
+                <Annotation Term="SAP__common.Heading" String="C/R"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Country/Region for Name Format Rule"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/_BusinessPartnerAddress">
+                <Annotation Term="SAP__common.Composition"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/BusinessPartner">
+                <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_BusinessPartnerAddress"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_BusinessPartnerCategory"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/OR SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group SAP__capabilities.SearchExpressions/phrase"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType">
+                <Annotation Term="SAP__common.Label" String="Projection view for BuPa"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="General Information"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#PersonalData"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Address"/>
+                            <PropertyValue Property="ID" String="Address"/>
+                            <PropertyValue Property="Target" AnnotationPath="_BusinessPartnerAddress/@SAP__UI.LineItem"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="FullName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="PersonalData">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="FirstName"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="LastName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Personal Data"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Business Partner"/>
+                        <PropertyValue Property="TypeNamePlural" String="Business Partners"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="BusinessPartner"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="FullName"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BusinessPartner"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="FirstName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LastName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BusinessPartnerCategory"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>BusinessPartner</PropertyPath>
+                        <PropertyPath>BusinessPartnerCategory</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="Communication.Contact">
+                    <Record/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/BusinessPartner">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Business Partner"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Partner Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/AddressNumber">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Address Number"/>
+                <Annotation Term="SAP__common.Heading" String="Addr. No."/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/AddressIDForEdit">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Address Number"/>
+                <Annotation Term="SAP__common.Heading" String="Addr. No."/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/ValidityStartDate">
+                <Annotation Term="SAP__common.Label" String="ValidityStartDate"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/ValidityEndDate">
+                <Annotation Term="SAP__common.Label" String="ValidityEndDate"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/PostalCode">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Postal Code"/>
+                <Annotation Term="SAP__common.Heading" String="Postl Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="City postal code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/Country">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Country/Region Key"/>
+                <Annotation Term="SAP__common.Heading" String="C/R"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/Region">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Region"/>
+                <Annotation Term="SAP__common.Heading" String="Rg"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Region (State, Province, County)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/AddressTimeZone">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Time Zone"/>
+                <Annotation Term="SAP__common.Heading" String="Zone"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Address Time Zone"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/TransportZone">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Transportation Zone"/>
+                <Annotation Term="SAP__common.Heading" String="TranspZone"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Transportation zone to or from which the goods are delivered"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/TaxJurisdiction">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Tax Jurisdiction"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/CompanyPostalCode">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Company Postal Code"/>
+                <Annotation Term="SAP__common.Heading" String="Postl Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Company Postal Code (for Large Customers)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/DeliveryServiceTypeCode">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Delvry Serv Type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Type of Delivery Service"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/DeliveryServiceNumber">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Delivery Service No."/>
+                <Annotation Term="SAP__common.Heading" String="Delivery Service Number"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Number of Delivery Service"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/POBox">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="PO Box"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/POBoxPostalCode">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="PO Box Postal Code"/>
+                <Annotation Term="SAP__common.Heading" String="Postl Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/POBoxDeviatingRegion">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="PO Box Region"/>
+                <Annotation Term="SAP__common.Heading" String="PO Region"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Region for PO Box (Country/Region, State, Province, ...)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/POBoxDeviatingCountry">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="PO Box Ctry/Region"/>
+                <Annotation Term="SAP__common.Heading" String="PO C/R"/>
+                <Annotation Term="SAP__common.QuickInfo" String="PO Box of Country/Region"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/PrfrdCommMediumType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Comm. Method"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Communication Method (Key) (Business Address Services)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/AddressLine1Text">
+                <Annotation Term="SAP__common.Label" String="AddressLine1Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/FormattedAddress">
+                <Annotation Term="SAP__common.Label" String="FormattedAddress"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/CompleteAddress">
+                <Annotation Term="SAP__common.Label" String="CompleteAddress"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/BPAddressIsProtected">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Sensitivity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="BP: Sensitivity Indicator"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/AddressNonDeliverableReason">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Undeliverable"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Street Address Undeliverable Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/PostBoxNonDeliverableReason">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Undeliverable"/>
+                <Annotation Term="SAP__common.QuickInfo" String="PO Box Address Undeliverable Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/BusinessPartnerAddress">
+                <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_BusinessPartner"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType">
+                <Annotation Term="SAP__common.Label" String="Projection view for BuPa Address"/>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Address"/>
+                        <PropertyValue Property="TypeNamePlural" String="Addresses"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="AddressNumber"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="CityName"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="StreetName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="HouseNumber"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PostalCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CityName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Country"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="SAP__aggregation.RollupType/None"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartnerUUID">
+                <Annotation Term="SAP__common.Label" String="BP GUID"/>
+                <Annotation Term="SAP__common.Heading" String="Business Partner GUID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Partner GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/CreationDate">
+                <Annotation Term="SAP__common.Label" String="Created On"/>
+                <Annotation Term="SAP__common.Heading" String="Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Date on which the object was created"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/CreationTime">
+                <Annotation Term="SAP__common.Label" String="Created at"/>
+                <Annotation Term="SAP__common.Heading" String="Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Time at which the object was created"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/LastChangeDate">
+                <Annotation Term="SAP__common.Label" String="Changed on"/>
+                <Annotation Term="SAP__common.Heading" String="Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Date when object was last changed"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/LastChangeTime">
+                <Annotation Term="SAP__common.Label" String="Changed at"/>
+                <Annotation Term="SAP__common.Heading" String="Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Time at which object was last changed"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/FirstName">
+                <Annotation Term="SAP__common.Label" String="First Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="First Name of Business Partner (Person)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/LastName">
+                <Annotation Term="SAP__common.Label" String="Last Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Last Name of Business Partner (Person)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/AdditionalLastName">
+                <Annotation Term="SAP__common.Label" String="Other Last Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Other Last Name of a Person"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartnerBirthName">
+                <Annotation Term="SAP__common.Label" String="Name at Birth"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Name at birth of business partner"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/MiddleName">
+                <Annotation Term="SAP__common.Label" String="Middle Name"/>
+                <Annotation Term="SAP__common.Heading" String="Middle or second name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Middle name or second forename of a person"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/PersonFullName">
+                <Annotation Term="SAP__common.Label" String="Full Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartnerNicknameLabel">
+                <Annotation Term="SAP__common.Label" String="Known As"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Nickname of Business Partner (Person)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/IsNaturalPerson">
+                <Annotation Term="SAP__common.Label" String="TRUE"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Data element for domain BOOLE: TRUE (='X') and FALSE (=' ')"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/Language">
+                <Annotation Term="SAP__common.Label" String="Language"/>
+                <Annotation Term="SAP__common.Heading" String="LG"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business partner: Language"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/CorrespondenceLanguage">
+                <Annotation Term="SAP__common.Label" String="Correspondence lang."/>
+                <Annotation Term="SAP__common.Heading" String="LG"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Partner: Correspondence Language"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BirthDate">
+                <Annotation Term="SAP__common.Label" String="Date of Birth"/>
+                <Annotation Term="SAP__common.Heading" String="Birth Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Date of Birth of Business Partner"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartnerBirthplaceName">
+                <Annotation Term="SAP__common.Label" String="Birthplace"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Birthplace of business partner"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartnerDeathDate">
+                <Annotation Term="SAP__common.Label" String="Death date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Date of death of business partner"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/IsMale">
+                <Annotation Term="SAP__common.Label" String="Male"/>
+                <Annotation Term="SAP__common.Heading" String="M"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Selection: Business partner is male"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/IsFemale">
+                <Annotation Term="SAP__common.Label" String="Female"/>
+                <Annotation Term="SAP__common.Heading" String="F"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Selection: Business partner is female"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/IsSexUnknown">
+                <Annotation Term="SAP__common.Label" String="Unknown"/>
+                <Annotation Term="SAP__common.Heading" String="U"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Selection: Sex of business partner is not known"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/NaturalPersonEmployerName">
+                <Annotation Term="SAP__common.Label" String="Employer"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Name of Employer of a Natural Person"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartnerSalutation">
+                <Annotation Term="SAP__common.Label" String="Salutation"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/OrganizationBPName1">
+                <Annotation Term="SAP__common.Label" String="Name 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Name 1 of organization"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/OrganizationBPName2">
+                <Annotation Term="SAP__common.Label" String="Name 2"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Name 2 of organization"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/OrganizationBPName3">
+                <Annotation Term="SAP__common.Label" String="Name 3"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Name 3 of organization"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/OrganizationBPName4">
+                <Annotation Term="SAP__common.Label" String="Name 4"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Name 4 of organization"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/OrganizationFoundationDate">
+                <Annotation Term="SAP__common.Label" String="Date founded"/>
+                <Annotation Term="SAP__common.Heading" String="Founded"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Date organization founded"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/OrganizationLiquidationDate">
+                <Annotation Term="SAP__common.Label" String="Liquidation date"/>
+                <Annotation Term="SAP__common.Heading" String="Liq. date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Liquidation date of organization"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/GroupBusinessPartnerName1">
+                <Annotation Term="SAP__common.Label" String="Name 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Name 1 (group)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/GroupBusinessPartnerName2">
+                <Annotation Term="SAP__common.Label" String="Name 2"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Name 2 (group)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartnerIsBlocked">
+                <Annotation Term="SAP__common.Label" String="Central Block"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Central Block for Business Partner"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/IsMarkedForArchiving">
+                <Annotation Term="SAP__common.Label" String="Archiving Flag"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Central Archiving Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusinessPartnerIsNotReleased">
+                <Annotation Term="SAP__common.Label" String="Not Released"/>
+                <Annotation Term="SAP__common.Heading" String="NRel"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Indicator: Not Released"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/IsBusinessPurposeCompleted">
+                <Annotation Term="SAP__common.Label" String="Purpose Completed"/>
+                <Annotation Term="SAP__common.Heading" String="Business Purpose Completed Flag"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Purpose Completed Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusPartPersonDataIsHidden">
+                <Annotation Term="SAP__common.Label" String="Truth Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Truth Value: True/False"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusPartOrgDataIsHidden">
+                <Annotation Term="SAP__common.Label" String="Truth Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Truth Value: True/False"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusPartGroupDataIsHidden">
+                <Annotation Term="SAP__common.Label" String="Truth Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Truth Value: True/False"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerType/BusPartAddrLanguageIsHidden">
+                <Annotation Term="SAP__common.Label" String="Truth Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Truth Value: True/False"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/BusinessPartnerAddressUUID">
+                <Annotation Term="SAP__common.Label" String="GUID of a Business Partner Address"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/CareOfName">
+                <Annotation Term="SAP__common.Label" String="c/o"/>
+                <Annotation Term="SAP__common.Heading" String="c/o name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="c/o name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/StreetPrefixName">
+                <Annotation Term="SAP__common.Label" String="Street 2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/AdditionalStreetPrefixName">
+                <Annotation Term="SAP__common.Label" String="Street 3"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/HouseNumber">
+                <Annotation Term="SAP__common.Label" String="House Number"/>
+                <Annotation Term="SAP__common.Heading" String="House No."/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/StreetName">
+                <Annotation Term="SAP__common.Label" String="Street"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/HouseNumberSupplementText">
+                <Annotation Term="SAP__common.Label" String="Supplement"/>
+                <Annotation Term="SAP__common.QuickInfo" String="House number supplement"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/StreetSuffixName">
+                <Annotation Term="SAP__common.Label" String="Street 4"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/AdditionalStreetSuffixName">
+                <Annotation Term="SAP__common.Label" String="Street 5"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/HomeCityName">
+                <Annotation Term="SAP__common.Label" String="Different City"/>
+                <Annotation Term="SAP__common.Heading" String="City (Diff. from Postal City)"/>
+                <Annotation Term="SAP__common.QuickInfo" String="City (different from postal city)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/District">
+                <Annotation Term="SAP__common.Label" String="District"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/DistrictName">
+                <Annotation Term="SAP__common.Label" String="District"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/CityName">
+                <Annotation Term="SAP__common.Label" String="City"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/POBoxIsWithoutNumber">
+                <Annotation Term="SAP__common.Label" String="PO Box w/o No."/>
+                <Annotation Term="SAP__common.Heading" String="PO"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Flag: PO Box Without Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/POBoxLobbyName">
+                <Annotation Term="SAP__common.Label" String="PO Box Lobby"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/POBoxDeviatingCityName">
+                <Annotation Term="SAP__common.Label" String="PO Box City"/>
+                <Annotation Term="SAP__common.QuickInfo" String="PO Box city"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/CorrespondenceLanguage">
+                <Annotation Term="SAP__common.Label" String="Language Key"/>
+                <Annotation Term="SAP__common.Heading" String="Language"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/StandardUsage">
+                <Annotation Term="SAP__common.Label" String="TRUE"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Data element for domain BOOLE: TRUE (='X') and FALSE (=' ')"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/Building">
+                <Annotation Term="SAP__common.Label" String="Building Code"/>
+                <Annotation Term="SAP__common.Heading" String="Building"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Building (Number or Code)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/Floor">
+                <Annotation Term="SAP__common.Label" String="Floor"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Floor in building"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/RoomNumber">
+                <Annotation Term="SAP__common.Label" String="Room Number"/>
+                <Annotation Term="SAP__common.Heading" String="Room No."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Room or Apartment Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/County">
+                <Annotation Term="SAP__common.Label" String="County"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BusinessPartnerAddressType/BPCountyText">
+                <Annotation Term="SAP__common.Label" String="County"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
